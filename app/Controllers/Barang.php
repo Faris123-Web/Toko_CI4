@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\BarangModel;
 
-class Home extends BaseController
+class Barang extends BaseController
 {
     protected $BarangModel;
     public function __construct()
@@ -14,12 +14,13 @@ class Home extends BaseController
 
     public function index()
     {
-        $barang = $this->BarangModel->findAll();
+   
+    	$barang = $this->BarangModel->findAll();
     	$data = [
     		'barang' => $barang
     	];
-        return view('template/layout', $data);
-    }
 
+        return view('dashboard/v_barang', $data);
+    }
 
 }
