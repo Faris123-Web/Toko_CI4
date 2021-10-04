@@ -8,9 +8,9 @@ class BarangModel extends Model
 {
 	protected $table = 'barang';
 	protected $primarykey = 'id';
-	// protected $allowedFields = [
-	// 	'nama', 'harga', 'stok', 'gambar', 'keterangan'
-	// ];
+	protected $allowedFields = [
+		'nama_barang', 'harga', 'stok', 'foto', 'keterangan'
+	];
 	// protected $returnType = 'App\Entities\Barang';
 	protected $useTimestamps = false;
 }

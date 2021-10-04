@@ -143,23 +143,21 @@
 				<h5 class="modal-title" id="exampleModalLabel">Form Tambah Barang</h5>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
-			<form action="<?= base_url('Barang/tambah'); ?>" method="post">
+			<form action="<?= base_url('Barang/tambah'); ?>" method="post" enctype="multipart/form-data">
 				<div class="modal-body">
 					<div class="form-group">
 						<input type="text" class="form-control mb-3" id="name" placeholder="Nama Barang" name="name">
 						<input type="text" class="form-control mb-3" id="jumlah" placeholder="Jumlah" name="jumlah">
 						<input type="text" class="form-control mb-3" id="harga" placeholder="Harga" name="harga">
 						<input type="text" class="form-control mb-3" id="keterangan" placeholder="Keterangan" name="keterangan">
-						<div class="input-group mb-3">
-							<input type="file" class="form-control" id="inputGroupFile02">
-							<label class="input-group-text" for="inputGroupFile02">Upload</label>
-						</div>
-
+						<!-- <input type="text" class="form-control mb-3" id="gambar" placeholder="Gambar" name="gambar"> -->
+						<label for="gambar" class="form-label">Masukan Foto</label>
+						<input class="form-control" type="file" id="gambar" name="gambar">
 					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Tambah Data</button>
+					<button type="submit" class="btn btn-primary">Tambah Data</button>
 				</div>
 			</form>
 		</div>

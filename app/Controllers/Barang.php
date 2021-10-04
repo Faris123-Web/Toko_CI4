@@ -23,4 +23,20 @@ class Barang extends BaseController
         return view('dashboard/v_barang', $data);
     }
 
+    public function tambah()
+    {
+    	$gambar = $this->request->getFile('gambar');
+    	$gambar->move('assets/img');
+    	$nama_gambar = $gambar->getName();
+
+    	$this->BarangModel->save([
+    		'nama_barang' => $this->request->getVar('name'),
+    		'stok' => $this->request->getVar('jumlah'),
+    		'harga' => $this->request->getVar('harga'),
+    		'keterangan' => $this->request->getVar('keterangan'),
+    		'foto' => $nama_gambar
+    	]);
+
+    	return redirect()->to('/barang');
+    }
 }
