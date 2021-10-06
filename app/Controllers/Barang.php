@@ -16,12 +16,24 @@ class Barang extends BaseController
     {
    
     	$barang = $this->BarangModel->findAll();
-    	$data = [
-    		'barang' => $barang
-    	];
+        $data = [
+            'barang' => $barang
+        ];
 
         return view('dashboard/v_barang', $data);
     }
+
+    // public function get_data()
+    // {
+    //     $barang = $this->BarangModel->findAll();
+    //     $data = [
+    //         'barang' => $barang
+    //     ];
+
+    //     $output = view('dashboard/data-barang', $data);
+
+    //     echo json_encode($output);
+    // }
 
     public function tambah()
     {
@@ -36,6 +48,31 @@ class Barang extends BaseController
     		'keterangan' => $this->request->getVar('keterangan'),
     		'foto' => $nama_gambar
     	]);
+
+    	return redirect()->to('/barang');
+    }
+
+    public function edit()
+    {
+        // $gambar = $this->request->getFile('gambar');
+        // $gambar->move('assets/img');
+        // $nama_gambar = $gambar->getName();
+
+        $this->BarangModel->save([
+            'id' => $this->request->getVar('id'),
+            'nama_barang' => $this->request->getVar('name'),
+            'stok' => $this->request->getVar('stok'),
+            'harga' => $this->request->getVar('harga'),
+            'keterangan' => $this->request->getVar('keterangan'),
+            'foto'  => $this->request->getVar('foto'),
+        ]);
+
+        return redirect()->to('/barang');
+    }
+
+    public function hapus($id)
+    {
+    	$this->BarangModel->delete($id);
 
     	return redirect()->to('/barang');
     }
