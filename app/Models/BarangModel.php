@@ -13,4 +13,13 @@ class BarangModel extends Model
 	];
 	// protected $returnType = 'App\Entities\Barang';
 	protected $useTimestamps = false;
+
+	public function getDetail($id = false)
+	{
+		if ($id == false) {
+			return $this->findAll();
+		}
+
+		return $this->where(['id' => $id])->first();
+	}
 }

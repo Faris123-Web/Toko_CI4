@@ -16,23 +16,6 @@
   <link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
 
 
-  <style>
-  .bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
-
-  @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
-    }
-  }
-</style>
-
-
 </head>
 <body>
 
@@ -71,43 +54,19 @@
 
   <main>
 
-    <section class="py-5 text-center container">
-      <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light">Welcome</h1>
-          <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-          <p>
-            <a href="#" class="btn btn-primary my-2">Main call to action</a>
-            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-          </p>
+    <div class="card m-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="<?= base_url('assets/img/')?>/<?= $detail['foto']?>" class="img-fluid rounded-start" alt="...">
         </div>
-      </div>
-    </section>
-
-    <div class="album py-5 bg-light">
-      <div class="container">
-
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <?php foreach($barang as $b) : ?>
-            <div class="col">
-              <div class="card shadow-sm">
-                <img src="<?= base_url('assets/img/')?>/<?= $b['foto']?>" width="200" height="225" >
-                <div class="card-body">
-                  <h2><?= $b['nama_barang']?></h2>
-                  <p class="card-text"><?= $b['keterangan']?>.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <a href="<?= base_url('Home/detail') ?>/<?= $b['id']?>" class="btn btn-primary">Detail</a>
-                      <button type="button" class="btn btn-danger">Add</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <?php endforeach; ?>
-          
-
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"><?= $detail['nama_barang']?></h5>
+            <p class="card-text"><?= $detail['keterangan']?>.</p>
+            <b><p class="card-text">Harga</p></b>
+            <p class="card-text">Rp.<?= $detail['harga']?>.</p>
+            <button class="btn btn-success"><i class="fas fa-shopping-cart"></i> Add</button>
+          </div>
         </div>
       </div>
     </div>

@@ -14,12 +14,19 @@ class Home extends BaseController
 
     public function index()
     {
-        $barang = $this->BarangModel->findAll();
+        // $barang = $this->BarangModel->findAll();
     	$data = [
-    		'barang' => $barang
+    		'barang' => $this->BarangModel->getDetail()
     	];
         return view('template/layout', $data);
     }
 
+    public function detail($id)
+    { 
+        $data = [
+            'detail' => $this->BarangModel->getDetail($id)
+        ];
 
+        return view('template/detail', $data);
+    }
 }
