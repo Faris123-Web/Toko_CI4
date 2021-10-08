@@ -14,6 +14,8 @@
   <link href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
   <link href="<?= base_url('assets/fontawesome/css/all.min.css') ?>" rel="stylesheet">
   <link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
+  <link href="<?= base_url('assets/css/adminlte.min.css') ?>" rel="stylesheet">
+  <link href="<?= base_url('assets/css/bootstrap-4.min.css') ?>" rel="stylesheet">
 
 
   <style>
@@ -98,7 +100,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <a href="<?= base_url('Home/detail') ?>/<?= $b['id']?>" class="btn btn-primary">Detail</a>
-                      <button type="button" class="btn btn-danger">Add</button>
+                      <button type="button" class="btn btn-danger swalDefaultSuccess">Add</button>
                     </div>
                     <small class="text-muted">9 mins</small>
                   </div>
@@ -126,7 +128,26 @@
   <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
   <script src="<?= base_url('assets/fontawesome/js/all.min.js') ?>"></script>
   <script src="<?= base_url('assets/jquery-3.6.0.min.js') ?>"></script>
+  <script src="<?= base_url('assets/adminlte.min.js') ?>"></script>
+  <script src="<?= base_url('assets/sweetalert2.min.js') ?>"></script>
 
+  <script ">
+    $(function() {
+     var Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+     $('.swalDefaultSuccess').click(function() {
+      Toast.fire({
+        icon: 'success',
+        title: 'Berhasil Add Barang.'
+      })
+    });
+
+   });
+ </script>
 
 </body>
 </html>

@@ -14,6 +14,8 @@
   <link href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
   <link href="<?= base_url('assets/fontawesome/css/all.min.css') ?>" rel="stylesheet">
   <link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
+  <link href="<?= base_url('assets/css/adminlte.min.css') ?>" rel="stylesheet">
+  <link href="<?= base_url('assets/css/bootstrap-4.min.css') ?>" rel="stylesheet">
 
 
 </head>
@@ -54,7 +56,44 @@
 
   <main>
 
-    <div class="card m-3" style="max-width: 540px;">
+    <div class="card card-solid">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 col-sm-6">
+            <h3 class="d-inline-block d-sm-none"><?= $detail['nama_barang']?></h3>
+            <div class="col-12">
+              <img src="<?= base_url('assets/img/')?>/<?= $detail['foto']?>" width="80%" height="100%" class="product-image" alt="Product Image">
+            </div>
+            <div class="col-12 product-image-thumbs">
+              <!-- <div class="product-image-thumb" ><img src="../../dist/img/prod-2.jpg" alt="Product Image"></div>
+              <div class="product-image-thumb" ><img src="../../dist/img/prod-3.jpg" alt="Product Image"></div>
+              <div class="product-image-thumb" ><img src="../../dist/img/prod-4.jpg" alt="Product Image"></div>
+              <div class="product-image-thumb" ><img src="../../dist/img/prod-5.jpg" alt="Product Image"></div> -->
+            </div>
+          </div>
+          <div class="col-12 col-sm-6">
+            <h3 class="my-3"><b><?= $detail['nama_barang']?></b></h3>
+            <hr>
+            <h5 class="my-3">Deskripsi</h5>
+            <p><?= $detail['keterangan']?></p>
+
+            <hr>
+  
+            <div class="mt-4">
+              <div class="btn btn-primary btn-lg btn-flat swalDefaultSuccess">
+                <i class="fas fa-cart-plus fa-lg mr-2"></i>
+                Add to Cart
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+
+    <!-- <div class="card m-3" style="max-width: 540px;">
       <div class="row g-0">
         <div class="col-md-4">
           <img src="<?= base_url('assets/img/')?>/<?= $detail['foto']?>" class="img-fluid rounded-start" alt="...">
@@ -69,7 +108,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </main>
 
@@ -85,7 +124,26 @@
   <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
   <script src="<?= base_url('assets/fontawesome/js/all.min.js') ?>"></script>
   <script src="<?= base_url('assets/jquery-3.6.0.min.js') ?>"></script>
+  <script src="<?= base_url('assets/adminlte.min.js') ?>"></script>
+  <script src="<?= base_url('assets/sweetalert2.min.js') ?>"></script>
 
+  <script ">
+    $(function() {
+     var Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000
+    });
+     $('.swalDefaultSuccess').click(function() {
+      Toast.fire({
+        icon: 'success',
+        title: 'Berhasil Add Barang.'
+      })
+    });
+
+   });
+ </script>
 
 </body>
 </html>
