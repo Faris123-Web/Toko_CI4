@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse" id="navbarsExample04">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="<?= base_url('Home') ?>">Home</a>
+              <a class="nav-link" aria-current="page" href="<?= base_url('Home') ?>">Home</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user"></i>Account</a>
@@ -42,7 +42,7 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href=""><i class="fas fa-shopping-cart"></i></a>
+              <a class="nav-link" href="<?= base_url('Home/cart') ?>"><i class="fas fa-shopping-cart"></i></a>
             </li>
           </ul>
           <form>
@@ -80,10 +80,10 @@
             <hr>
   
             <div class="mt-4">
-              <div class="btn btn-primary btn-lg btn-flat swalDefaultSuccess">
+                <a class="btn btn-primary btn-lg btn-flat swalDefaultSuccess" href="<?= base_url('Home/cart') ?>">
                 <i class="fas fa-cart-plus fa-lg mr-2"></i>
                 Add to Cart
-              </div>
+                </a>
             </div>
 
           </div>

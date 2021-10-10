@@ -59,7 +59,7 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href=""><i class="fas fa-shopping-cart"></i></a>
+              <a class="nav-link" href="<?= base_url('Home/cart') ?>"><i class="fas fa-shopping-cart"></i></a>
             </li>
           </ul>
           <form>
@@ -100,7 +100,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <a href="<?= base_url('Home/detail') ?>/<?= $b['id']?>" class="btn btn-primary">Detail</a>
-                      <button type="button" class="btn btn-danger swalDefaultSuccess">Add</button>
+                      <a href="<?= base_url('Home/cart') ?>" class="btn btn-danger swalDefaultSuccess">Add</a>
                     </div>
                     <small class="text-muted">9 mins</small>
                   </div>

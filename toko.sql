@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Okt 2021 pada 05.31
+-- Waktu pembuatan: 10 Okt 2021 pada 07.52
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -43,7 +43,8 @@ CREATE TABLE `barang` (
 INSERT INTO `barang` (`id`, `nama_barang`, `harga`, `keterangan`, `foto`, `stok`) VALUES
 (1, 'Xiaomi', '1800000', 'Cocok Untuk Anak Muda', 'xiaomi.png', '5'),
 (2, 'Iphone XR', '5000000', 'Sudah Jelas ', 'Iphone.jpg', '5'),
-(3, 'Nokia', '500000', 'RAJANYA', 'nokia.jpg', '2');
+(3, 'Nokia', '500000', 'RAJANYA', 'nokia.jpg', '2'),
+(6, 'Pit', '6000', 'Wimcycle', '1.jpg', '5');
 
 --
 -- Indexes for dumped tables
@@ -63,7 +64,7 @@ ALTER TABLE `barang`
 -- AUTO_INCREMENT untuk tabel `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

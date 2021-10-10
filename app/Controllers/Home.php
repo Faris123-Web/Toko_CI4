@@ -29,4 +29,9 @@ class Home extends BaseController
 
         return view('template/detail', $data);
     }
+
+    public function cart()
+    {
+        return view('template/cart');
+    }
 }
