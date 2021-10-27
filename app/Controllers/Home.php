@@ -18,7 +18,7 @@ class Home extends BaseController
     	$data = [
     		'barang' => $this->BarangModel->getDetail()
     	];
-        return view('template/layout', $data);
+        return view('landingpage', $data);
     }
 
     public function detail($id)
@@ -27,11 +27,11 @@ class Home extends BaseController
             'detail' => $this->BarangModel->getDetail($id)
         ];
 
-        return view('template/detail', $data);
+        return view('detail', $data);
     }
 
     public function cart()
     {
-        return view('template/cart');
+        return view('cart');
     }
 }

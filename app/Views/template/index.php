@@ -46,6 +46,7 @@
 
   <?= $this->include('template/navbar'); ?>
   <?= $this->renderSection('content'); ?>
+  <?= $this->include('template/footer'); ?>
 
 
   <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>

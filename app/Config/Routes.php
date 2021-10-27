@@ -20,7 +20,9 @@ $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
-$routes->set404Override();
+$routes->set404Override(function (){
+	echo view ('not_found.php');
+});
 $routes->setAutoRoute(true);
 
 /*
@@ -34,6 +36,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/dashboard', 'Dashboard::index');
 $routes->get('/barang', 'Barang::index');
+// $routes->get('/login', 'Login::index');
 
 /*
  * --------------------------------------------------------------------
