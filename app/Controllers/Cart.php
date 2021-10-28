@@ -13,16 +13,27 @@ class Cart extends BaseController
 
 		// memanggil form helper
 		helper('form');
+		
+		helper('number');
 
 		//memanggil library cart
 		$this->cart = \Config\Services::cart();
 	}
 
+	public function cek()
+	{
+		$data = $this->cart->contents();
+		print_r($data);
+	}	
+
 	public function index()
 	{
 
 
-		$data['item'] = $this->cart->totalItems();
+		$data = [
+		'item' => $this->cart->totalItems(),
+		'cart' => \Config\Services::cart()
+		];
 
 		return view('cart', $data);
 	}
@@ -31,12 +42,16 @@ class Cart extends BaseController
 	{
 
 		$this->cart->insert(array(
-			'id'      => 'sku_1234ABCD',
+			'id'      => $this->request->getPost('id'),
 			'qty'     => 1,
-			'price'   => '19.56',
-			'name'    => 'T-Shirt',
-			'options' => array('Size' => 'L', 'Color' => 'Red')
+			'price'   => $this->request->getPost('price'),
+			'name'    => $this->request->getPost('name'),
+			'options' => array(
+				'foto' => $this->request->getPost('foto')
+			)
 		));
+
+		return redirect()->to(base_url('home'));
 	}
 
 	public function clear()

@@ -10,14 +10,18 @@ class Home extends BaseController
     public function __construct()
     {
     	$this->BarangModel = new BarangModel();
+        helper('form');
+        //memanggil library cart
+        $this->cart = \Config\Services::cart();
     }
 
     public function index()
     {
         // $barang = $this->BarangModel->findAll();
     	$data = [
-    		'barang' => $this->BarangModel->getDetail()
+    		'barang' => $this->BarangModel->getDetail(),
     	];
+        $data['item'] = $this->cart->totalItems();
         return view('landingpage', $data);
     }
 

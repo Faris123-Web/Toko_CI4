@@ -28,7 +28,7 @@
             <button class="btn-search"><i class="fas fa-search"></i></button>
             <input type="text" class="input-search" placeholder="Type to Search...">
           </div>
-          <a class="text-decoration-none" href="<?= base_url('Cart') ?>"><i class="fas fa-shopping-cart"></i></a>
+          <a class="text-decoration-none" href="<?= base_url('Cart') ?>"><i class="fas fa-shopping-cart"></i><span class="badge badge-danger navbar-badge"><?= $item ;?></span></a>
           <form>
 
           </form>

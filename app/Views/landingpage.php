@@ -1,4 +1,4 @@
-<?= $this->extend('template/index'); ?>
+<?= $this->extend('template/index', [$item]); ?>
 <?= $this->section('content'); ?>
 <main>
 
@@ -37,6 +37,14 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <?php foreach($barang as $b) : ?>
           <div class="col">
+            <?php echo form_open('cart/add');
+            echo form_hidden('id', $b['id']);
+            echo form_hidden('price', $b['harga']);
+            echo form_hidden('name', $b['nama_barang']);
+            //options
+            echo form_hidden('foto', $b['foto']);
+             ?>
+
             <div class="card shadow-sm" style="border-radius:10px">
               <img src="<?= base_url('assets/img/')?>/<?= $b['foto']?>">
               <div class="card-body" style="background:#17304E;">
@@ -45,12 +53,13 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <a href="<?= base_url('Home/detail') ?>/<?= $b['id']?>" class="btn btn-primary">Detail</a>
-                    <a href="<?= base_url('Cart/add') ?>/<?= $b['id']?>" class="btn btn-danger swalDefaultSuccess">Add</a>
+                    <button type="submit" class="btn btn-danger swalDefaultSuccess">Add</button>
                   </div>
                   <small class="text-muted">9 mins</small>
                 </div>
               </div>
             </div>
+            <?php echo form_close(); ?>
           </div>
         <?php endforeach; ?>
 
