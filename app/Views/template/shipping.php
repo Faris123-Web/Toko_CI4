@@ -44,7 +44,7 @@
 </head>
 <body>
 
-  <?= $this->include('template/navbar', [$item]); ?>
+
   <?= $this->renderSection('content'); ?>
 
 

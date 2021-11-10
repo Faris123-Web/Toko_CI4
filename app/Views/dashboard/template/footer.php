@@ -29,7 +29,7 @@
             $('#edit_stok').val(stok);
             $('#edit_harga').val(harga);
             $('#edit_keterangan').val(keterangan);
-            $('#edit_foto').val(foto);
+            $('#edit_foto').attr("src", "<?= base_url('assets/img/')?>"+foto);
             $('#editModal').modal('show');
             // Call Modal Edit
         });

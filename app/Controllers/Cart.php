@@ -58,5 +58,15 @@ class Cart extends BaseController
 	{
 	
 		$this->cart->destroy();
+
+		return redirect()->to(base_url('cart'));
+	}
+
+	public function remove($rowid)
+	{
+
+		$this->cart->remove($rowid);
+
+		return redirect()->to(base_url('cart'));
 	}
 }	

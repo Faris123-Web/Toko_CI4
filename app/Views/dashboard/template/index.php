@@ -99,6 +99,7 @@
 <script src="<?= base_url('assets/fontawesome/js/all.min.js') ?>"></script>
 <script src="<?= base_url('assets/jquery-3.6.0.min.js') ?>"></script>
 <script src="<?= base_url('assets/adminlte.min.js') ?>"></script>
-<?= $this->include('dashboard/template/footer'); ?>
+<!-- <?= $this->include('dashboard/template/footer'); ?> -->
+<?= $this->renderSection('dashboardscript'); ?>
 </body>
 </html>
