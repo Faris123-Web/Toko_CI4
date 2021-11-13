@@ -40,28 +40,6 @@ class Shipping extends BaseController
 		$pro = $this->request->getPost('provinsi');
 		$kot = $this->request->getPost('kota');
 
-		$curl = curl_init();
-
-		curl_setopt_array($curl, array(
-			CURLOPT_URL => "https://api.rajaongkir.com/starter/city?id=$kot&province=$pro",
-			CURLOPT_RETURNTRANSFER => true,
-			CURLOPT_ENCODING => "",
-			CURLOPT_MAXREDIRS => 10,
-			CURLOPT_TIMEOUT => 30,
-			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-			CURLOPT_CUSTOMREQUEST => "GET",
-			CURLOPT_HTTPHEADER => array(
-				"key: ".$this->apiKey
-			),
-		));
-
-		$response = curl_exec($curl);
-		$err = curl_error($curl);
-
-		curl_close($curl);
-
-		// print_r ($response);
-
 		//cost
 		$curl = curl_init();
 
@@ -85,7 +63,7 @@ class Shipping extends BaseController
 
 		curl_close($curl);
 
-		print_r ($response);		
+		print_r($response);
 	}
 
 	public function getCity()

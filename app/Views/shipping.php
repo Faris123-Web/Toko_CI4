@@ -56,7 +56,7 @@
 									</p>
 								</div>
 							</div>
-					<?php echo form_open('Shipping/add');?>
+					<?php echo form_open('Chekout');?>
 
 							<?= form_input($jumlah1)?>
 							<?= form_input($total_harga)?>
@@ -83,6 +83,10 @@
 									Valid last name is required.
 								</div>
 							</div>
+							</div>
+
+							<div class="col-12 mt-3">
+								<input type="text" class="form-control mb-3" style="border-radius: 10px;" id="tlp" name="tlp" placeholder="No Telephone" required>
 							</div>
 
 							<div class="col-12 mt-3">
