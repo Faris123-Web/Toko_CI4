@@ -1,47 +1,57 @@
 <?= $this->extend('template/shipping'); ?>
 <?= $this->section('content'); ?>
+
 <main>
 	<div class="container mt-5">
 		<h1 class="display-6 fw-bold">Checkout</h1>
 		<div class="card">
+			<?php echo form_open('Chekout/add');?>
+			<input type="hidden" name="email" value="<?= $email?>" >
+			<input type="hidden" name="id_barang" value="<?= $id_barang?>">
+			<input type="hidden" name="jumlah" value="<?= $jumlah?>">
+			<input type="hidden" name="total_harga" value="<?= $total_harga?>">
+			<input type="hidden" name="alamat" value="<?= $alamat.",".$kot.",".$pro.",".$zip?>">
+			<input type="hidden" name="nama_depan" value="<?= $nama_depan?>">
+			<input type="hidden" name="nama_belakang" value="<?= $nama_belakang?>">
+			<input type="hidden" name="tlp" value="<?= $tlp?>">
 			<table >
 				<tbody>
 					<tr>
 						<td class="px-4 py-3" style="width: 300px; font-size: 20px" ><i class="fas fa-map-marker-alt"></i>&nbsp;Alamat Pengiriman</td>
 					</tr>
 					<tr>
-						<td  class="px-4 py-2" style="font-size: 18px;"><b><?= $nama_depan.$nama_belakang?></b><br><?= $tlp?></td>
-						<td class="px-4 py-2" style="font-size: 18px; text-align: justify;"><?= $alamat ?>, <?= $kot ?>, <?= $pro ?>, ID <?= $zip ?></td>
+						<td  class="px-4 py-2" style="font-size: 18px;" name="data_diri"><b><?= $nama_depan.$nama_belakang?></b><br><?= $tlp?></td>
+						<td class="px-4 py-2" style="font-size: 18px; text-align: justify;" name="alamat"><?= $alamat ?>, <?= $kot ?>, <?= $pro ?>, ID <?= $zip ?></td>
 					</tr>
 					<tr>
 						<td class="px-4 py-2" colspan="2" align="center"><hr>
 							<a href="#" class="fw-bold" style="color:black; font-size: 23px; text-decoration: none;">Ubah</a>
 						</td>
 					</tr>
-					</tbody>
-				</table>
-			</div>
+				</tbody>
+			</table>
+		</div>
 
-			<div class="card mt-3">
-				<table>
-					<tbody>
-						<td class="border-right px-4 pt-3" align="center" style="font-size: 18px;"><b>OPSI PENGIRIMAN : </b>
-							<p>
-								<div class="form-group">
-									<select class="custom-selected" id="kurir">
-										<option>Pilih Kurir</option>
-										<option value="jne">JNE</option>
-										<option value="pos">POS</option>
-										<option value="tiki">TIKI</option>
-									</select>
-								</div>
-							</p>
-						</td>
+		<div class="card mt-3">
+			<table>
+				<tbody>
+					<td class="border-right px-4 pt-3" align="center" style="font-size: 18px;"><b>OPSI PENGIRIMAN : </b>
+						<p>
+							<div class="form-group">
+								<select class="custom-selected" id="kurir" name="kurir">
+									<option>Pilih Kurir</option>
+									<option value="jne">JNE</option>
+									<option value="pos">POS</option>
+									<option value="tiki">TIKI</option>
+								</select>
+							</div>
+						</p>
+					</td>
 
 					<td  style="font-size:18px" colspan="2" width="54%" class="px-4">Paket Pilihan 
 						<p>
 							<div class="form-group">
-								<select class="custom-selected-1" id="paket">
+								<select class="custom-selected-1" id="paket" name="paket">
 									<option>Pilih Paket</option>
 								</select>
 							</div>
@@ -54,7 +64,7 @@
 						Ongkos Kirim :
 						<p>
 							<div class="form-group">
-								<b id="ongkir">Rp. 0</b>
+								<b id="ongkir" name="ongkir">Rp. 0</b>
 							</div>
 						</p>
 					</td>
@@ -72,12 +82,12 @@
 						<p class="text-end"><a href="" style="text-decoration: none; color: black;">Lihat Semua</a></p>
 
 						<div class="form-check text-end">
-							<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+							<input class="form-check-input" type="radio" name="bank" id="flexRadioDefault1" value="transfer">
 							<div class="d-flex">
-								<img src="images/GoPay.png" alt="" width="50px" height="50px" class="d-inline-block align-text-top">
+								<img src="<?= base_url('assets/img/university-solid.svg') ?>" alt="" width="50px" height="50px" class="d-inline-block align-text-top">
 								<div class="px-3">
 									<p class=" text-start fw-bold m-0">
-										GoPay
+										Transfer Bank
 									</p>
 									<p>Bayar dengan mudah dan cepat</p>
 								</div>
@@ -87,12 +97,12 @@
 						<hr>
 
 						<div class="form-check text-end">
-							<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+							<input class="form-check-input" type="radio" name="bank" id="flexRadioDefault1" value="e-wallet">
 							<div class="d-flex">
-								<img src="images/GoPay.png" alt="" width="50px" height="50px" class="d-inline-block align-text-top">
+								<img src="<?= base_url('assets/img/wallet-solid.svg') ?>" alt="" width="50px" height="50px" class="d-inline-block align-text-top">
 								<div class="px-3">
 									<p class=" text-start fw-bold m-0">
-										GoPay
+										E-Wallet
 									</p>
 									<p>Bayar dengan mudah dan cepat</p>
 								</div>
@@ -102,12 +112,12 @@
 						<hr>
 
 						<div class="form-check text-end">
-							<input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+							<input class="form-check-input" type="radio" name="bank" id="flexRadioDefault1" value="paypal">
 							<div class="d-flex">
-								<img src="images/GoPay.png" alt="" width="50px" height="50px" class="d-inline-block align-text-top">
+								<img src="<?= base_url('assets/img/cc-paypal-brands.svg') ?> " alt="" width="50px" height="50px" class="d-inline-block align-text-top">
 								<div class="px-3">
 									<p class=" text-start fw-bold m-0">
-										GoPay
+										Paypal
 									</p>
 									<p>Bayar dengan mudah dan cepat</p>
 								</div>
@@ -142,10 +152,11 @@
 					<tr><td class="px-4" colspan="2"><hr></td></tr>
 					<tr>
 						<td  class="p-4" style="font-size: 18px;">Dengan melanjutkan, saya setuju dengan Syarat dan Ketentuan yang berlaku</td>
-						<td class="fw-bold px-4 "><button type="button" style="background: #17304E; font-size:18px; width: 100%; border-radius:5px;" class="btn btn-secondary">Buat Pesanan</button></td>
+						<td class="fw-bold px-4 "><button type="submit" style="background: #17304E; font-size:18px; width: 100%; border-radius:5px;" class="btn btn-secondary">Buat Pesanan</button></td>
 					</tr>
 				</tbody>
 			</table>
+			<?php echo form_close(); ?>
 		</div>
 
 	</main>

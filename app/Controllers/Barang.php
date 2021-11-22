@@ -22,15 +22,12 @@ class Barang extends BaseController
 
         return view('dashboard/v_barang', $data);
     }
-
+    
     public function get_data()
     {
-        $barang = $this->BarangModel->findAll();
-        // $data = [
-        //     'barang' => $barang
-        // ];
-
-        // $output = view('dashboard/data-barang', $data);
+        $id = $this->request->getGet('id');
+        $barang = $this->BarangModel->where(['id' => $id])->first();
+        
 
         echo json_encode($barang);
     }

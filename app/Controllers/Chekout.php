@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\TransaksiModel;
+
 class Chekout extends BaseController
 {
 	private $url = "https://api.rajaongkir.com/starter/";
@@ -10,7 +12,7 @@ class Chekout extends BaseController
 	public function __construct()
 	{
 		// memanggil product model
-		// $this->BarangModel = new BarangModel();
+		$this->TransaksiModel = new TransaksiModel();
 
 		//memanggil library cart
 		$this->cart = \Config\Services::cart();
@@ -119,4 +121,55 @@ class Chekout extends BaseController
 		return $response;
     }
 
+    public function add()
+    {
+    	$jumlah = $this->request->getPost('jumlah');
+    	$total_harga = $this->request->getPost('total_harga');
+    	$email = $this->request->getPost('email');
+    	$nama_depan = $this->request->getPost('nama_depan');
+    	$nama_belakang = $this->request->getPost('nama_belakang');
+    	$kurir = $this->request->getPost('kurir');
+    	$ongkir = $this->request->getPost('paket');
+    	$bank = $this->request->getPost('bank');
+    	$alamat = $this->request->getPost('alamat');
+    	$tlp = $this->request->getPost('tlp');
+    	$id_barang = $this->request->getPost('id_barang');
+		$zip = $this->request->getPost('zip');
+
+		$data = [
+			'jumlah' => $jumlah,
+			'sub_total' => $total_harga,
+			'total_harga' => $total_harga+$ongkir,
+			'email' => $email,
+			'nama' => $nama_depan.$nama_belakang,
+			'jasa_kirim' => $kurir,
+			'ongkir' => $ongkir,
+			'metode_pembayaran' => $bank,
+			'alamat' => $alamat,
+			'no_tlp' => $tlp,
+			'id_barang' => $id_barang,
+			'status' => 0,
+		];
+
+		$this->TransaksiModel->insert($data);
+		$this->cart->destroy();
+
+       return redirect()->to('Chekout/invoice',);
+    }
+
+    public function invoice()
+    {
+    	
+    	$data = $this->TransaksiModel->orderBy('created_at', 'DESC')->findAll();
+   
+    	return view('invoice', $data[0]);
+    	
+    }
+
+    public function ijo()
+    {
+    
+    	$data = $this->TransaksiModel->orderBy('created_at', 'DESC')->findAll();
+    	print_r($data[0]);
+    }
 }

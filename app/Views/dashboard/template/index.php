@@ -9,6 +9,7 @@
 	<link href="<?= base_url('assets/fontawesome/css/all.min.css') ?>" rel="stylesheet">
 	<link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
 	<link href="<?= base_url('assets/css/adminlte.min.css') ?>" rel="stylesheet">
+	<link href="<?= base_url('assets/DataTables/datatables.min.css') ?>" rel="stylesheet">
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -99,7 +100,8 @@
 <script src="<?= base_url('assets/fontawesome/js/all.min.js') ?>"></script>
 <script src="<?= base_url('assets/jquery-3.6.0.min.js') ?>"></script>
 <script src="<?= base_url('assets/adminlte.min.js') ?>"></script>
-<!-- <?= $this->include('dashboard/template/footer'); ?> -->
+<script src="<?= base_url('assets/DataTables/datatables.min.js') ?>"></script>
+
 <?= $this->renderSection('dashboardscript'); ?>
 </body>
 </html>

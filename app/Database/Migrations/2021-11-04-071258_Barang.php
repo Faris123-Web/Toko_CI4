@@ -45,6 +45,6 @@ class Barang extends Migration
     public function down()
     {
         //
-        $this->forge->dropTable('barang')
+        $this->forge->dropTable('barang');
     }
 }

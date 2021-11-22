@@ -109,4 +109,10 @@ class Shipping extends BaseController
 
 		return $response;
 	}
+
+	public function invoice()
+    {
+    	
+    	return view('invoice');
+    }
 }	
