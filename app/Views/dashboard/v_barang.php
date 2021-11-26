@@ -40,7 +40,7 @@
 								<td><?= $b['stok']?></td>
 								<td><?= $b['harga']?></td>
 								<td>
-									<button type="button" class="btn btn-primary mr-2 edit-data" id="edit-data" data="<?= $b['id']?>">Edit</button>
+									<button type="button" class="btn btn-primary mr-2 edit" id="edit" data="<?= $b['id']?>">Edit</button>
 									<a href="/Barang/hapus/<?= $b['id']; ?>"><button type="button" class="btn btn-danger">Hapus</button></a>
 								</td>
 							</tr>
@@ -102,20 +102,20 @@
 			<form action="<?= base_url('Barang/edit'); ?>" method="post" enctype="multipart/form-data">
 				<div class="modal-body">
 					<div class="form-group">
-						<input type="hidden" id="edit_id" name="id">
+						<input type="hidden" id="edit_id" name="edit_id">
 						<label for="edit_name" class="form-label">Masukan Nama</label>
-						<input type="text" class="form-control mb-3" id="edit_name" name="name">
+						<input type="text" class="form-control mb-3" id="edit_name" name="edit_name">
 						<label for="edit_stok" class="form-label">Masukan Jumlah</label>
-						<input type="text" class="form-control mb-3" id="edit_stok" name="stok">
+						<input type="text" class="form-control mb-3" id="edit_stok" name="edit_stok">
 						<label for="edit_harga" class="form-label">Masukan Harga</label>
-						<input type="text" class="form-control mb-3" id="edit_harga" name="harga">
+						<input type="text" class="form-control mb-3" id="edit_harga" name="edit_harga">
 						<label for="edit_keterangan" class="form-label">Masukan Keterangan</label>
-						<textarea class="form-control mb-3" placeholder="Keterangan" id="edit_keterangan" name="keterangan"></textarea>
+						<textarea class="form-control mb-3" placeholder="Keterangan" id="edit_keterangan" name="edit_keterangan"></textarea>
 						
 						<!-- <input type="text" class="form-control mb-3" id="gambar" placeholder="Gambar" name="gambar"> -->
 						<label for="foto" class="form-label">Masukan Foto</label>
-						<img src="<?= base_url('assets/img/')?>" id="edit_foto" width="80px" name="foto">
-						<input class="form-control" type="file" id="edit_foto" name="foto">
+						<img src="<?= base_url('assets/img/')?>" id="edit_foto" width="80px" name="edit_foto">
+						<input class="form-control" type="file" id="edit_foto" name="edit_foto">
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -132,7 +132,7 @@
 	$(document).ready( function () {
 		$('#table1').DataTable();
 
-		$('#edit-data').on('click',function(){
+		$('#edit').on('click', function() {
             // get data from button edit
             var id = $(this).attr('data');
             $.ajax({
@@ -145,37 +145,20 @@
             	success : function(data){
             		console.log(data);
             		$('#editModal').modal('show');
-            		$('[name="id"]').val(data.id);
-            		$('[name="name"]').val(data.nama_barang);
-            		$('[name="stok"]').val(data.stok);
-            		$('[name="harga"]').val(data.harga);
-            		$('[name="keterangan"]').val(data.keterangan);
-            		$('[name="foto"]').val(data.foto);
+            		$('[name="edit_id"]').val(data.id);
+            		$('[name="edit_name"]').val(data.nama_barang);
+            		$('[name="edit_stok"]').val(data.stok);
+            		$('[name="edit_harga"]').val(data.harga);
+            		$('[name="edit_keterangan"]').val(data.keterangan);
+            		$('[name="edit_foto"]').val(data.foto);
             	},
             	error: function(data){
             		console.log(data);
             	}
             });
             
-            // Set data to Form Edit
-            // $('#edit_id').val(id);
-            // $('#edit_name').val(name);
-            // $('#edit_stok').val(stok);
-            // $('#edit_harga').val(harga);
-            // $('#edit_keterangan').val(keterangan);
-            // $('#edit_foto').attr("src", "<?= base_url('assets/img/')?>"+foto);
-            // $('#editModal').modal('show');
-            // Call Modal Edit
         });
 	});
-
-	// $.ajax({
-	// 	url: "<?= base_url('Barang/get_data') ?>",
-	// 	dataType: "json",
-	// 	success: function(res) {
-	// 		$(".data-barang").html(res)
-	// 	}
-	// })
 
 </script>
 <?= $this->endSection(); ?>

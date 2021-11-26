@@ -56,11 +56,11 @@ class Barang extends BaseController
         // $nama_gambar = $gambar->getName();
 
         $this->BarangModel->save([
-            'id' => $this->request->getVar('id'),
-            'nama_barang' => $this->request->getVar('name'),
-            'stok' => $this->request->getVar('stok'),
-            'harga' => $this->request->getVar('harga'),
-            'keterangan' => $this->request->getVar('keterangan'),
+            'id' => $this->request->getVar('edit_id'),
+            'nama_barang' => $this->request->getVar('edit_name'),
+            'stok' => $this->request->getVar('edit_stok'),
+            'harga' => $this->request->getVar('edit_harga'),
+            'keterangan' => $this->request->getVar('edit_keterangan'),
             'foto'  => $this->request->getVar('foto'),
         ]);
 
